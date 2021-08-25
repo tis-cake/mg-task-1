@@ -1,0 +1,9 @@
+node_modules
+/.git
+
+/gulpfile.js
+/webpack.config.js
+/.eslintrc.json
+
+/build/*.js
+/src/js/polyfills
