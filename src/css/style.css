@@ -1,0 +1,151 @@
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+th,
+td {
+  padding: 0;
+}
+
+button,
+input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.15;
+  text-transform: none;
+  overflow: visible;
+
+  border: 1px solid currentColor;
+  border-radius: initial;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.hero {
+  /* width: 820px; */
+  width: 800px;
+  margin: 50px auto;
+  /* display: flex;
+  align-items: baseline; */
+  /* justify-content: center; */
+}
+
+.hero__form {
+  margin-bottom: 16px;
+}
+
+.form {
+  --gap-field: 4px;
+
+  display: flex;
+  align-items: center;
+}
+
+.form__label {
+  margin-right: var(--gap-field);
+}
+.form__input,
+.form__submit {
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.form__input {
+  width: 364px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.form__submit {
+  margin-left: var(--gap-field);
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-family: sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.output-data {
+  border-collapse: collapse;
+  border: 1px solid currentColor;
+}
+
+.output-data th:first-child,
+.output-data td:first-child {
+  width: 546px;
+}
+
+.output-data td:first-child {
+  text-align: left;
+}
+
+.output-data th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.output-data td {
+  box-sizing: border-box;
+  padding-top: 3px;
+  padding-bottom: 9px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
