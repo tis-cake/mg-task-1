@@ -1,9 +1,9 @@
 import React from 'react';
+import { nanoid } from 'nanoid';
 
 import { OutputDataItem } from '../output-data-item/output-data-item';
 
 import { IData } from '../../../utils/interfaces';
-import { getRandomInt } from '../../../utils/common';
 
 interface IPropsOutputDataBody {
   data: Array<IData>,
@@ -14,7 +14,7 @@ const OutputDataBody: React.FC<IPropsOutputDataBody> = ({ data }) => {
     <tbody>
       {data.map((el) => (
         <OutputDataItem
-          key={`item-data-${getRandomInt()}`}
+          key={`item-data-${nanoid()}`}
           itemData={el}
         />
       ))}

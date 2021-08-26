@@ -8,7 +8,7 @@
   "extends": ["airbnb-typescript"],
   "rules": {
     "strict": ["error", "global"],
-    "max-len": ["warn", 160],
+    "max-len": "off",
     "no-plusplus": "off",
     "no-multi-spaces": "off",
     "space-before-function-paren": "off",

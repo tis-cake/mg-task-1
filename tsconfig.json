@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ESNext.String", "DOM"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "module": "commonjs",
