@@ -1,9 +1,11 @@
 import { VOWELS } from '../const';
 
+const MATCHES_EMPTY = 0;
 const SEPARATOR_DASH: string = '—';
 const SEPARATOR_SPACE: string = ' ';
 const FILTER_TYPES: string[] = ['', '-'];
-const SEPARATOR_REG_EXP: RegExp = new RegExp(SEPARATOR_DASH, 'g');
+const REG_EXP_SEPARATOR: RegExp = new RegExp(SEPARATOR_DASH, 'g');
+const REG_EXP_VOWELS: RegExp = new RegExp(`[${VOWELS.join('')}]`, 'gi');
 
 const getWordsCount = (string: string):number => {
   /*
@@ -17,7 +19,7 @@ const getWordsCount = (string: string):number => {
   */
 
   return string
-    .replaceAll(SEPARATOR_REG_EXP, SEPARATOR_SPACE)
+    .replaceAll(REG_EXP_SEPARATOR, SEPARATOR_SPACE)
     .split(SEPARATOR_SPACE)
     .filter((str) => !FILTER_TYPES.includes(str))
     .length;
@@ -25,13 +27,12 @@ const getWordsCount = (string: string):number => {
 
 const getVowelsCount = (string: string): number => {
   /*
-    Просто ищем в строке совпадения с массивом гласных.
+    Ищем в строке совпадения с массивом гласных через RegExp.
+    Учитываем null.
   */
 
-  return string
-    .split('')
-    .filter((char) => VOWELS.includes(char.toLowerCase()))
-    .length;
+  const matches: RegExpMatchArray = string.match(REG_EXP_VOWELS);
+  return matches ? matches.length : MATCHES_EMPTY;
 };
 
 export { getWordsCount, getVowelsCount };
