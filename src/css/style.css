@@ -20,6 +20,18 @@ td {
   padding: 0;
 }
 
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 button,
 input {
   box-sizing: border-box;
@@ -75,12 +87,8 @@ input[type="radio"].visually-hidden {
 }
 
 .hero {
-  /* width: 820px; */
   width: 800px;
   margin: 50px auto;
-  /* display: flex;
-  align-items: baseline; */
-  /* justify-content: center; */
 }
 
 .hero__form {
@@ -90,34 +98,83 @@ input[type="radio"].visually-hidden {
 .form {
   --gap-field: 4px;
 
+  position: relative;
   display: flex;
   align-items: center;
+
+  font-size: 14px;
 }
 
 .form__label {
   margin-right: var(--gap-field);
-}
-.form__input,
-.form__submit {
-  font-size: 14px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  font-size: 16px;
 }
 
-.form__input {
+.form__input,
+.form__mark-list,
+.form__notify-ignored {
+  box-sizing: border-box;
   width: 364px;
-  padding-left: 2px;
-  padding-right: 2px;
+  height: 100%;
+  padding: 2px;
+  border: 1px solid currentColor;
+}
+
+.form__input--marked {
+  opacity: 0;
 }
 
 .form__submit {
   margin-left: var(--gap-field);
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 2px 20px;
 
   font-family: sans-serif;
   text-align: center;
   cursor: pointer;
+}
+
+.form__notify-ignored {
+  top: -100%;
+  transform: translateY(calc(-100% - var(--gap-field)));
+
+  font-weight: 400;
+}
+
+.form__mark-list,
+.form__notify-ignored {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 168px;
+}
+
+.form__mark-list {
+  display: flex;
+}
+
+.form__mark-item {
+  position: relative;
+  margin-right: 7px;
+}
+
+.form__mark-item:last-child {
+  margin-right: 0;
+}
+
+.form__mark-item--false {
+  color: red;
+}
+
+.form__mark-item::after {
+  position: absolute;
+  content: ' ,';
+  right: -4px;
+  bottom: 0;
+  color: black;
+}
+
+.form__mark-item:last-child:after {
+  content: none;
 }
 
 .output-data {

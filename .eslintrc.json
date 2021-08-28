@@ -13,6 +13,7 @@
     "no-multi-spaces": "off",
     "space-before-function-paren": "off",
     "arrow-body-style": "off",
+    "no-useless-escape": "off",
     "class-methods-use-this": "warn",
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "no-restricted-syntax": ["off", "ForOfStatement"],

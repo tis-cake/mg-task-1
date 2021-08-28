@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "sourceMap": true,
+    "target": "ES6",
     "jsx": "react"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],

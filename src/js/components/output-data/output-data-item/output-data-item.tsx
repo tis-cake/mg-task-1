@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { IData } from '../../../utils/interfaces';
-import { getWordsCount, getVowelsCount } from '../../../utils/common';
+import { getWordsCount, getVowelsCount } from '../../../utils/count';
 
 interface IPropsOutputData {
   itemData: IData,

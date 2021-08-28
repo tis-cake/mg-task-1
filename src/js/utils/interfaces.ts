@@ -2,4 +2,8 @@ interface IData {
   [key: string]: string,
 }
 
-export { IData };
+interface IMarkList {
+  [key: number]: boolean,
+}
+
+export { IData, IMarkList };
