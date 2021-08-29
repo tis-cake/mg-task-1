@@ -16,7 +16,9 @@ import React, { useState, useRef } from 'react';
 import { FormMark } from './form-mark/form-mark';
 import { FormNotifyIgnored } from './form-notify-ignored/form-notify-ignored';
 
+import { TSetStateActionData } from '../../utils/types';
 import { IMarkList } from '../../utils/interfaces';
+import { serverAPI } from '../../server/api';
 import {
   RANGE_MIN,
   RANGE_MAX,
@@ -29,11 +31,12 @@ import {
 
 interface IPropsForm {
   classBlock: string,
+  setData: TSetStateActionData,
 }
 
 const REG_EXP_SEPARATOR: RegExp = new RegExp(`[${SEPARATOR_COMA}|${SEPARATOR_SEMICOLON}]\d?`);
 
-const Form: React.FC<IPropsForm> = ({ classBlock }) => {
+const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
   const [input, setInput] = useState('');
   const [marked, setMarked] = useState(false);
   const [markList, setMarkList] = useState({});
@@ -67,6 +70,10 @@ const Form: React.FC<IPropsForm> = ({ classBlock }) => {
     if (isIgnoredValue) {
       setMarked(true);
       setMarkList(markedValue);
+    }
+
+    if (finalValues.size > 0) {
+      serverAPI(finalValues, setData);
     }
   };
 

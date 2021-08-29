@@ -150,6 +150,7 @@ input[type="radio"].visually-hidden {
 
 .form__mark-list {
   display: flex;
+  overflow: hidden;
 }
 
 .form__mark-item {
@@ -206,3 +207,21 @@ input[type="radio"].visually-hidden {
   text-align: center;
 }
 
+.error-modal {
+  box-sizing:  border-box;
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: red;
+  color: white;
+}

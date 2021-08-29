@@ -6,4 +6,8 @@ interface IMarkList {
   [key: number]: boolean,
 }
 
-export { IData, IMarkList };
+interface IEnumNumber {
+  [key: string]: number,
+}
+
+export { IData, IMarkList, IEnumNumber };
