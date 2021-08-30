@@ -1,6 +1,5 @@
-import { TSetStateActionData } from '../utils/types';
 import { IData } from '../utils/interfaces';
-import { checkStatus, handleError } from '../utils/error';
+import { checkStatus } from '../utils/error';
 
 interface IUrlOptions {
   method: string,
@@ -14,7 +13,7 @@ const URL_OPTIONS: IUrlOptions = {
   headers: new Headers({ 'TMG-Api-Key': TOKEN }),
 };
 
-const serverAPI = (arr: Set<Number>, callback: TSetStateActionData): void => {
+const serverAPI = (arr: Set<Number>, onSucces, onError): void => {
   const requests: Promise<IData>[] = [];
 
   arr.forEach((val) => {
@@ -26,8 +25,8 @@ const serverAPI = (arr: Set<Number>, callback: TSetStateActionData): void => {
   });
 
   Promise.all(requests)
-    .then((responses: IData[]) => callback(responses))
-    .catch((err) => handleError(err));
+    .then((responses: IData[]) => onSucces(responses))
+    .catch((err) => onError(err));
 };
 
 export { serverAPI };

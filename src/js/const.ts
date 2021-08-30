@@ -8,9 +8,15 @@ const SEPARATOR_SEMICOLON: string = ';';
 const INPUT_PATTERN: string = `(\\d+)([${SEPARATOR_COMA}${SEPARATOR_SEMICOLON}]\\s*\\d+)*`;
 const INPUT_PLACEHOLDER: string = `Введите число/числа от ${RANGE_MIN} до ${RANGE_MAX}.`;
 
-const INVALID_MESSAGE_RANGE: string = `Число игнорируется, если оно не в диапазоне от ${RANGE_MIN} до ${RANGE_MAX}.`;
+const ERROR_MESSAGE_EMPTY: string = '';
 const INVALID_MESSAGE_PATTERN: string = `Пожалуйста, используйте только цифры.\nДля ввода нескольких цифр используйте запятую [${SEPARATOR_COMA}] или точку с запятой [${SEPARATOR_SEMICOLON}].`;
+const INVALID_MESSAGE_RANGE_MOBILE: string = `Диапазон чисел: от ${RANGE_MIN} до ${RANGE_MAX}.`;
+const INVALID_MESSAGE_RANGE_DESKTOP: string = `Число игнорируется, если оно не в диапазоне от ${RANGE_MIN} до ${RANGE_MAX}.`;
 
+/*
+  Так как с сервера мы не получаем локаль пользователя вместе с текстом, как вариант - можно использовать
+  массив со всеми доступными глассными.
+*/
 const VOWELS: string[] = [
   // RU
   'а',
@@ -84,8 +90,10 @@ export {
 
   INPUT_PATTERN,
   INPUT_PLACEHOLDER,
-  INVALID_MESSAGE_RANGE,
+  ERROR_MESSAGE_EMPTY,
   INVALID_MESSAGE_PATTERN,
+  INVALID_MESSAGE_RANGE_MOBILE,
+  INVALID_MESSAGE_RANGE_DESKTOP,
 
   SEPARATOR_COMA,
   SEPARATOR_SEMICOLON,

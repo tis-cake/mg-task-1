@@ -140,6 +140,10 @@ input[type="radio"].visually-hidden {
   font-weight: 400;
 }
 
+.form__notify-ignored--mobile {
+  display: none;
+}
+
 .form__mark-list,
 .form__notify-ignored {
   position: absolute;
@@ -178,7 +182,28 @@ input[type="radio"].visually-hidden {
   content: none;
 }
 
+.form__notify-error {
+  box-sizing:  border-box;
+  display: block;
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: red;
+  color: white;
+}
+
 .output-data {
+  width: 100%;
   border-collapse: collapse;
   border: 1px solid currentColor;
 }
@@ -207,21 +232,70 @@ input[type="radio"].visually-hidden {
   text-align: center;
 }
 
-.error-modal {
-  box-sizing:  border-box;
+@media (max-width: 824px) {
+  .hero {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10px;
+  }
+  .form {
+    --gap-field: 10px;
 
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: red;
-  color: white;
-}
+  .form__label,
+  .form__submit {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form__label,
+  .form__input {
+    margin-bottom: var(--gap-field);
+  }
+
+  .form__input,
+  .form__mark-list,
+  .form__notify-ignored {
+    width: 100%;
+    height: 22px;
+  }
+
+  .form__mark-list,
+  .form__notify-ignored {
+    top: 28px;
+    left: 0;
+  }
+
+  .form__notify-ignored {
+    transform: translateY(calc(-100% - 25px - var(--gap-field)));
+  }
+
+  .form__notify-ignored--desktop {
+    display: none;
+  }
+
+  .form__notify-ignored--mobile {
+    display: block;
+  }
+
+  .form__notify-error {
+    font-size: 16px;
+  }
+
+  .output-data {
+    font-size: 14px;
+  }
+
+  .output-data th:first-child,
+  .output-data td:first-child {
+    width: 70%;
+  }
+
+  .output-data th {
+    padding: 5px;
+  }
+ }
