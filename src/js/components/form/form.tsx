@@ -28,15 +28,15 @@ const TIMEOUT = 3000;
 const REG_EXP_SEPARATOR: RegExp = new RegExp(`[${SEPARATOR_COMA}|${SEPARATOR_SEMICOLON}]\d?`);
 
 const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
-  // Состояние input.
+  // State input.
   const [input, setInput] = useState('');
-  // Состояние некорректно введённых чисел (вне допустимого диапазона) - для вывода предупреждения.
+  // State of incorrectly entered numbers (out of range) - for showing warning.
   const [marked, setMarked] = useState(false);
-  // Список с некорректно введёными числами.
+  // A list with  incorrectly entered numbers.
   const [markList, setMarkList] = useState({});
-  // Состояние загрузки данных - для блокировки submit формы.
+  // State of data loading - for disabling a submit form.
   const [dataLoading, setDataLoading] = useState(false);
-  // Состояние ошибки с сервера - для вывода сообщения с ошибкой.
+  // State of a server error - for showing a message with an error.
   const [error, setError] = useState(ERROR_MESSAGE_EMPTY);
 
   const inputRef = useRef<HTMLInputElement>();
@@ -45,8 +45,8 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   const handleDataLoadingSuccess = (data: IData[]): void => {
     /*
-      Так как запрос на сервер выполняется только из одной формы, можно пренебречь универсальностью функций
-      onSucces/onError и использовать их только в данном компоненте (<Form />).
+      Because of the fact that a request is completing only from one single form, it's possible to ignore
+      the universality of the functions onSucces/onError and use them in the current component (<Form />).
     */
 
     setDataLoading(false);
@@ -56,8 +56,8 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   const handleDataLoadingError = (err: Response): void => {
     /*
-      Так как запрос на сервер выполняется только из одной формы, можно пренебречь универсальностью функций
-      onSucces/onError и использовать их только в данном компоненте (<Form />).
+      Because of the fact that a request is completing only from one single form, it's possible to ignore
+      the universality of the functions onSucces/onError and use them in the current component (<Form />).
     */
 
     setDataLoading(false);
@@ -67,10 +67,10 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   const handleFormSubmit = (evt: React.FormEvent<HTMLFormElement>): void => {
     /*
-      При сабмите фильтруем полученное значение с учётом max/min диапазона.
-      При обнаружении хотя бы 1 валидного (в пределах допустимого диапазона) числа - fetch на сервер.
-      При обнаружении хотя бы 1 невалидного числа - подсвечиваем игнорируемые числа (компонент <FormMark />)
-      и выводим предупреждение (компонент <FormNotifyIgnored />).
+      After submit we filter the entered value giving due consideration to max/min range.
+      If we get at least 1 valid number (within the available range), we fetch the request.
+      If we get at least 1 invalid number, we outline ignored numbers (a component <FormMark />) and show
+      a warning notification (a component <FormNotifyIgnored />).
     */
 
     evt.preventDefault();
@@ -107,9 +107,10 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   const handleUserInteractionForm = (): void => {
     /*
-      Подсветку и предупреждение удаляем при любом пользовательском взаимодействии с интерфейсом:
-      фокусе/ховере.
+      We remove outline and a warning notification while a user is interacting with the interface:
+      focus and hover.
     */
+
     if (marked) {
       setMarked(!marked);
     }
@@ -117,8 +118,8 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
     /*
-      Валидируем ввод только чисел с учётом доступных разделителей ([,] и [;]) прямо в input.
-      Оповещаем пользователя, используя встроенное API ValidityState.
+      Validate input of numbers only taking into account available separators ([,] и [;]) in an input field.
+      Notify a user using built-in API ValidityState.
     */
 
     const inputEl: HTMLInputElement = inputRef.current;
@@ -134,7 +135,7 @@ const Form: React.FC<IPropsForm> = ({ classBlock, setData }) => {
 
   useEffect(() => {
     /*
-      Удаление компонента, уведомляющего об ошибках при запросе.
+      Removing a component notifying about request errors.
     */
 
     const timer = setTimeout(() => {

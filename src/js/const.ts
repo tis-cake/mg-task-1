@@ -14,9 +14,10 @@ const INVALID_MESSAGE_RANGE_MOBILE: string = `Диапазон чисел: от 
 const INVALID_MESSAGE_RANGE_DESKTOP: string = `Число игнорируется, если оно не в диапазоне от ${RANGE_MIN} до ${RANGE_MAX}.`;
 
 /*
-  Так как с сервера мы не получаем локаль пользователя вместе с текстом, как вариант - можно использовать
-  массив со всеми доступными глассными.
+  Because of the fact that we can't receive a user locale with a text value, we can use an array of all
+  the available vowels.
 */
+
 const VOWELS: string[] = [
   // RU
   'а',

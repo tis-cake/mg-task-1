@@ -9,13 +9,12 @@ const REG_EXP_VOWELS: RegExp = new RegExp(`[${VOWELS.join('')}]`, 'gi');
 
 const getWordsCount = (string: string):number => {
   /*
-    1. Заменяем в строке все символы дефисов на пробел.
-    2. Получаем массив всех слов, разбив по пробелам.
-    3. Так как мы заменили все дефисы на пробелы - мы можем иметь в итоговом массиве
-       пустые строки (как результат конвертации 3 пробелов подряд). Более того, нам
-       следует учесть такие особенности, как использование тире на месте дефисов в
-       исходной строке. Соответственно, из итогового массива мы удаляем лишние символы
-       через фильтрацию.
+    1. Replace all the dash-like-characters in a string with spaces.
+    2. Get an array of all the words splited by spaces.
+    3. Due to the replacing of all the dash-like-characters with spaces, we can get empty
+       strings in a final array (as a result of converting 3 spaces in a row). Moreover,
+       we should take into consideration such circumstances as using dash instead of hyphen
+       in a source string. Thus, we remove useless characters through filtration.
   */
 
   return string
@@ -27,8 +26,7 @@ const getWordsCount = (string: string):number => {
 
 const getVowelsCount = (string: string): number => {
   /*
-    Ищем в строке совпадения с массивом гласных через RegExp.
-    Учитываем null.
+    Look for matches with an array of vowels using RegExp (considering null).
   */
 
   const matches: RegExpMatchArray = string.match(REG_EXP_VOWELS);
